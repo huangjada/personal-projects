@@ -1,14 +1,24 @@
+import numpy
+
 def add(x, y):
-    return x + y
+    result = x + y
+    result = numpy.format_float_positional(result, trim='-')    # removes unnecessary trailing zeroes or decimal points from result
+    return result
 
 def subtract(x, y):
-    return x - y
+    result = x - y
+    result = numpy.format_float_positional(result, trim='-')
+    return result
 
 def multiply(x, y):
-    return x * y
+    result = x * y
+    result = numpy.format_float_positional(result, trim='-')
+    return result
 
 def divide(x, y):
-    return x / y
+    result = x / y
+    result = numpy.format_float_positional(result, trim='-')
+    return result
 
 while True:
     x = float(input("Input first number: "))
