@@ -37,23 +37,21 @@ def divide(x, y):
 
 # function to perform the calculation of the desired operation
 def calculate(operation, x, y):
-    global result
-
     if operation == "add":
         add(x, y)
-        print("The answer is: ", result, '\n')
+        print("The answer is: ", result)
 
     elif operation == "subtract":
         subtract(x, y)
-        print("The answer is: ", result, '\n')
+        print("The answer is: ", result)
 
     elif operation == "multiply":
         multiply(x, y)
-        print("The answer is: ", result, '\n')
+        print("The answer is: ", result)
 
     elif operation == "divide":
         divide(x, y)
-        print("The answer is: ", result, '\n')
+        print("The answer is: ", result)
 
     else:
         print("Invalid input.", '\n')
@@ -81,7 +79,7 @@ while True:
     # if yes, user will be asked to input new number and the second while loop will begin
     # otherwise, loop will break
     while True:
-        cont = input("Perform new calculation with current result? Y/N: ")
+        cont = input("\nPerform new calculation with current result? Y/N: ")
 
         if cont == "y" or cont == "Y":
             x = result
