@@ -3,6 +3,7 @@ import numpy
 global result
 result = 0
 
+# function to perform addition
 def add(x, y):
     global result
 
@@ -10,6 +11,7 @@ def add(x, y):
     result = numpy.format_float_positional(result, trim='-')    # removes unnecessary trailing zeroes or decimal points from result
     return result
 
+# function to perform subtraction
 def subtract(x, y):
     global result
 
@@ -17,6 +19,7 @@ def subtract(x, y):
     result = numpy.format_float_positional(result, trim='-')
     return result
 
+# function to perform multiplication
 def multiply(x, y):
     global result
 
@@ -24,6 +27,7 @@ def multiply(x, y):
     result = numpy.format_float_positional(result, trim='-')
     return result
 
+# function to perform division
 def divide(x, y):
     global result
 
@@ -31,31 +35,46 @@ def divide(x, y):
     result = numpy.format_float_positional(result, trim='-')
     return result
 
-while True:
-    x = float(input("Input first number: "))
-    y = float(input("Input second number: "))
-
-    print("Operations: add, subtract, multiply, or divide.")
-    operation = input("Which operation would you like to choose: ")
+# function to perform the calculation of the desired operation
+def calculate(operation, x, y):
+    global result
 
     if operation == "add":
-        result = add(x, y)
+        add(x, y)
         print("The answer is: ", result, '\n')
 
     elif operation == "subtract":
-        result = subtract(x, y)
+        subtract(x, y)
         print("The answer is: ", result, '\n')
 
     elif operation == "multiply":
-        result = multiply(x, y)
+        multiply(x, y)
         print("The answer is: ", result, '\n')
 
     elif operation == "divide":
-        result = divide(x, y)
+        divide(x, y)
         print("The answer is: ", result, '\n')
 
     else:
         print("Invalid input.", '\n')
+
+
+while True:
+    x = input("Input first number: ")
+    y = input("Input second number: ")
+
+    # checks if input contains only digits
+    if x.isdigit() is False or y.isdigit() is False:
+        print("Invalid input(s) detected.\nEnding Process. ")
+        break
+
+    x = float(x)
+    y = float(y)
+
+    print("Operations: add, subtract, multiply, or divide.")
+    operation = input("Which operation would you like to choose: ")
+
+    calculate(operation, x, y)
 
 
     # cont asks user if they want to perform additional operation using result and new input number
@@ -68,25 +87,18 @@ while True:
             x = result
             result = 0
             print("First number is: ", x)
-            y = float(input("Input second number: "))
+            y = input("Input second number: ")
+
+            if x.isdigit() is False or y.isdigit() is False:
+                print("Invalid input(s) detected.\nEnding Process. ")
+                break
+
+            y = float(y)
 
             print("Operations: add, subtract, multiply, or divide.")
             operation = input("Which operation would you like to choose: ")
 
-            if operation == "add":
-                print("The answer is: ", add(x, y), '\n')
-
-            elif operation == "subtract":
-                print("The answer is: ", subtract(x, y), '\n')
-
-            elif operation == "multiply":
-                print("The answer is: ", multiply(x, y), '\n')
-
-            elif operation == "divide":
-                print("The answer is: ", divide(x, y), '\n')
-
-            else:
-                print("Invalid input.", '\n')
+            calculate(operation, x, y)
 
         else:
             break
@@ -96,5 +108,5 @@ while True:
     restart = input("Restart calculation? Y/N: ")
 
     if restart == "n" or restart == "N":
-        print("Goodbye.\n")
+        print("\nGoodbye.\n")
         break
