@@ -4,6 +4,5 @@ and have always thought about doing it but never put in the effort to do so. Cre
 
 # calculator-1.py
 This is the first small project that I've created. It is very basic and can be fine tuned, but currently meets the requirements I set out for myself.
-The program does not end after it finishes a calculation, and instead "restarts" itself when prompted by the user. I did this so that I do not have to 
-manually run the file each time I want to do a calculation, and will ask the user after the end of each calculation if they wanted to continue. The program
-will end if the user declines continuing usage of the calculator.
+The program does not end after it finishes a calculation, and instead asks the user if they want to continue. I did this so that I do not have to 
+manually run the file each time I want to do a calculation, and will ask the user after the end of each calculation if they wanted to continue using result of previous calculation, followed by if they wish to start a new calculation with new numbers. The program will end if the user declines continuing usage of the calculator.
